@@ -1,19 +1,9 @@
+version: '3.8'
 services:
   spodstudio-miniapp:
-    container_name: spodstudio-miniapp
-    build:
-      context: ./spodstudio-miniapp
-      dockerfile: Dockerfile
-    restart: always
+    build: .
     ports:
       - "8001:3001"
-    networks:
-      - my_network
-
-  # Add more containers below (nginx, postgres, etc.)
-
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
-networks:
-  my_network:
-    external: true
+    restart: always
+    environment:
+      - NODE_ENV=production
