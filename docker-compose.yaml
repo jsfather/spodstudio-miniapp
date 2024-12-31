@@ -4,6 +4,8 @@ services:
     build: .
     ports:
       - "8001:3001"
-    restart: always
     environment:
       - NODE_ENV=production
+    volumes:
+      - .:/app
+    command: ["npm", "start"]
