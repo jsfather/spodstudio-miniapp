@@ -6,11 +6,11 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm run build
+
 COPY /app/.next/standalone ./
 COPY /app/public ./public
 COPY /app/.next/static ./.next/static
-
-RUN npm run build
 
 EXPOSE 3001
 
